@@ -1,0 +1,135 @@
+/* body {
+    padding-top: 10px;
+} */
+body {
+    background-image: url("safe\ class\ background.png");
+}
+
+#keyboard {
+    /*margin-top: 10px;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 695px;
+}
+
+#header {
+    /* margin-left: auto;
+    margin-right: auto;
+    width: 900px; */
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: -5px;
+}
+
+.ui.card {
+    margin-left: auto;
+    margin-right: auto;
+    height: 160px;
+    width: 510px;
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.ui.card::placeholder {
+    font-size: medium;
+    opacity: 0.7;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.ui.card:hover{
+    box-shadow: 0 0 5pt 0.5pt #b9b9b9;
+  }
+
+.ui.card:focus {
+    box-shadow: 0 0 5pt 2pt #b9b9b9;
+    outline-width: 0px;
+}
+
+.compact.ui.button.key {
+    height: 75px;
+    width: 67px;
+    font-size: larger;
+    margin-right: 0px;
+}
+
+#keyboard:hover {
+    cursor: not-allowed;
+}
+
+.compact.ui.button.key:hover {
+    cursor: not-allowed;
+}
+
+@media (max-width:695px) {
+    #keyboard {
+        width: calc(100vw - 10px);
+    }
+
+    .compact.ui.button.key {
+        height: 60px;
+        width: calc(100vw / 11.2);
+        font-size: smaller;
+    }
+}
+
+/*.compact.ui.button.space {
+    height: 40px;
+    width: 414px;
+    margin-right: 0px;
+}
+
+.compact.ui.button.delete {
+    height: 40px;
+    width: 93;
+    margin-right: 0px;
+}*/
+
+#row-2 {
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+#row-3 {
+    margin-top: 3px;
+    margin-left: 35px;
+}
+
+#row-4 {
+    margin-top: 3px;
+}
+
+#info-message {
+    width: 510px;
+    /*mobile width 310px*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+@media (max-width:520px) {
+    #info-message {
+        width: 310px;
+    }
+
+    .ui.card {
+        width: 310px;
+    }
+}
+
+/*#delete-key {
+    margin-left: -6px;
+    margin-right: -100px;
+    margin-top: -3px;
+    font-size: 37.5px;
+    color: #c7c7c7;
+}*/
+
+.underline {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}

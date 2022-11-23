@@ -1,0 +1,150 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blind Keyboard</title>
+    <meta name="description" content="A website which helps Blind people type.">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="constants.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <h1><strong>Blind Keyboard </strong><i class="fa fa-eye-slash" aria-hidden="true"></i></h1>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div id="info-message" class="ui info message">
+        <h2 id="inputcomesherexd">Input</h2>
+    </div>
+
+    <textarea id="textinput" type="text" class="ui card" maxlength="1" onchange onpropertychange onkeyuponpaste
+        oninput="read()"
+        placeholder="-Click here to start typing&#10;-Text in Blue is to be typed&#10;-Text in Red shows Key Placement&#10;-Keyboard below shows Keystrokes&#10;-It is Not for Typing"></textarea>
+
+    <div id="info-message" class="ui info message"
+        style="background-color: #fff8f8; color: #862727; box-shadow: 0 0 0 1px #dea9a9 inset, 0 0 0 0 transparent;">
+        <h2 id="output">OUTPUT COMES HERE</h2>
+    </div>
+
+    <br>
+
+    <div id="keyboard">
+        <div id="row-1">
+            <button id="key-0" class="compact ui button key" onclick="showalert()">
+                Q
+            </button>
+            <button id="key-3" class="compact ui button key" onclick="showalert()">
+                W
+            </button>
+            <button id="key-6" class="compact ui button key" onclick="showalert()">
+                E
+            </button>
+            <button id="key-9" class="compact ui button key" onclick="showalert()">
+                R
+            </button>
+            <button id="key-12" class="compact ui button key" onclick="showalert()">
+                T
+            </button>
+            <button id="key-15" class="compact ui button key" onclick="showalert()">
+                Y
+            </button>
+            <button id="key-18" class="compact ui button key" onclick="showalert()">
+                U
+            </button>
+            <button id="key-21" class="compact ui button key" onclick="showalert()">
+                I
+            </button>
+            <button id="key-24" class="compact ui button key" onclick="showalert()">
+                O
+            </button>
+            <button id="key-27" class="compact ui button key" onclick="showalert()">
+                P
+            </button>
+        </div>
+
+        <div id="row-2">
+            <button id="key-1" class="compact ui button key" onclick="showalert()">
+                A
+            </button>
+            <button id="key-4" class="compact ui button key" onclick="showalert()">
+                S
+            </button>
+            <button id="key-7" class="compact ui button key" onclick="showalert()">
+                D
+            </button>
+            <button id="key-10" class="compact ui button key" onclick="showalert()" style="text-decoration: underline;">
+                F
+            </button>
+            <button id="key-13" class="compact ui button key" onclick="showalert()">
+                G
+            </button>
+            <button id="key-16" class="compact ui button key" onclick="showalert()">
+                H
+            </button>
+            <button id="key-19" class="compact ui button key" onclick="showalert()" style="text-decoration: underline;">
+                J
+            </button>
+            <button id="key-22" class="compact ui button key" onclick="showalert()">
+                K
+            </button>
+            <button id="key-25" class="compact ui button key" onclick="showalert()">
+                L
+            </button>
+        </div>
+
+        <div id="row-3">
+            <button id="key-2" class="compact ui button key" onclick="showalert()">
+                Z
+            </button>
+            <button id="key-5" class="compact ui button key" onclick="showalert()">
+                X
+            </button>
+            <button id="key-8" class="compact ui button key" onclick="showalert()">
+                C
+            </button>
+            <button id="key-11" class="compact ui button key" onclick="showalert()">
+                V
+            </button>
+            <button id="key-14" class="compact ui button key" onclick="showalert()">
+                B
+            </button>
+            <button id="key-17" class="compact ui button key" onclick="showalert()">
+                N
+            </button>
+            <button id="key-20" class="compact ui button key" onclick="showalert()">
+                M
+            </button>
+        </div>
+        <!--<div id="row-4">
+            <button id="key-30" class="compact ui button space">
+                space
+            </button>
+            <button id="key-31" class="compact ui button delete">
+                delete
+            </button>
+        </div>-->
+    </div>
+    <div style="display: none;">
+        Select Voice: <select id='voiceList'></select> <br><br>
+        <input id='txtInput' /> <br><br>
+        <button id='btnSpeak'>Speak!</button>
+    </div>
+</body>
+
+<script src="test.js"></script>
+
+</html>
