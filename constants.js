@@ -135,6 +135,7 @@ var keyMapping = {
 
 function showalert() {
     alert("Keyboard Not For Typing.\nClick on the Textbox to type.");
+    document.getElementById("textinput").focus();
 }
 
 $(document).keydown(event => {

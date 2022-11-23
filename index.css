@@ -22,6 +22,7 @@ body {
 }
 
 .ui.card {
+    position: inherit;
     margin-left: auto;
     margin-right: auto;
     height: 160px;
@@ -38,9 +39,9 @@ body {
     font-weight: bold;
 }
 
-.ui.card:hover{
+.ui.card:hover {
     box-shadow: 0 0 5pt 0.5pt #b9b9b9;
-  }
+}
 
 .ui.card:focus {
     box-shadow: 0 0 5pt 2pt #b9b9b9;
@@ -101,6 +102,7 @@ body {
 }
 
 #info-message {
+    position: inherit;
     width: 510px;
     /*mobile width 310px*/
     margin-left: auto;
@@ -132,4 +134,210 @@ body {
 
 .hidden {
     display: none;
+}
+
+.endfooter {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+/* ======================================================================== */
+
+/*                      RELATED TO THE TTUTORIAL                        */
+
+/* ======================================================================== */
+
+button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+:is(.sidebar, .sidebar-inner, .sidebar-menu) {
+    position: absolute;
+    top: 0;
+}
+
+.sidebar {
+    left: 0;
+    width: 72px;
+    height: 56px;
+    background: #66bfbf;
+    padding: 1rem 0;
+    transition: width .4s;
+}
+
+body.open .sidebar {
+    width: 310px;
+    height: 100%;
+}
+
+.sidebar button {
+    display: flex;
+    align-items: center;
+    width: 72px;
+    height: 50px;
+    grid-gap: 2rem;
+    font-size: var(--step-0);
+    font-weight: 200;
+    line-height: 1;
+    padding: 0 1.5rem;
+}
+
+.sidebar button i {
+    color: #f9f9f9;
+}
+
+.sidebar-tools-footer button {
+    grid-gap: 6rem;
+}
+
+.sidebar-inner {
+    width: 72px;
+    height: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;    
+    background-color: #666bbf;
+}
+
+.sidebar-header {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 1.125rem 0 0;
+    background: rgba(0, 0, 0, .1);
+}
+
+.sidebar-burger {
+    width: 72px;
+    height: 72px;
+    display: grid;
+    place-items: center;
+    transition: .3s;
+}
+
+.sidebar-logo {
+    height: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+body.open .sidebar-logo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar-tools-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-tools {
+    width: 72px;
+    height: 100%;
+    flex: 1 1 auto;
+    background: rgba(0, 0, 0, .1125);
+    border-right: 1px solid #55a7b4;
+}
+
+.progress {
+    font-size: x-large;
+    font-weight: bold;
+    background: -webkit-linear-gradient(45deg, #9100ff, #97006f 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer {
+    display: flex;
+    flex: 0 1 auto;
+    width: 72px;
+    height: 72px;
+    background: rgba(0, 0, 0, .1125);
+}
+
+.sidebar-menu {
+    flex: 1 1 auto;
+    /*top: 4px;*/
+    left: 72px;
+    font-size: large;
+}
+
+.sidebar-menu>button,
+footer span {
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+    margin-top: 20px;
+}
+
+body.open .sidebar-menu>button,
+body.open footer span {
+    opacity: 1;
+    visibility: visible;
+    animation: appear .4s both;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+button>span {
+    color: #f9f9f9;
+    transition: .4s;
+}
+
+button:hover span {
+    padding-left: 1.5rem;
+}
+
+body.open button>span {
+    animation: span .3s both
+}
+
+@keyframes span {
+    0% {
+        opacity: 0;
+        transform: translate(0, 50px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#popUpMain{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(25px);
+  z-index: 1001;
+}
+
+#popup{
+  width: 500px; /*25rem*/
+  height: 0px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width:500px){
+  #popup{width: 300px; height: 0px;}
 }
