@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blind Keyboard</title>
+    <meta name="description" content="A website which helps Blind people type.">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="constants.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div id="popUpMain">
+        <div id="popup">
+            <div id="info-message" class="ui info message">
+                <i class="fa fa-close fa-2x"
+                    style="position: fixed; right: 2px; top: 6px; color: rgb(200, 40, 40); cursor: pointer;"
+                    onclick="closepopup()"></i>
+                <h2 class="progress" style="margin-top: 0px;">IMPORTANT</h2>
+                <h4>> Make sure that the volume is turned up.</h4>
+                <h4>> If you are a helper follow the instructions given in the text box.</h4>
+                <h4>> Click on <i class="fa-solid fa-bars burger-icon"></i> to change difficulty based on your skillset.</h4>
+                <h4 style="margin-bottom: 20px;">> All keystrokes are shown in the keyboard layout on screen.</h4>
+
+            </div>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <header class="sidebar-header">
+                <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
+                    <i id="burgericon" class="fa-solid fa-bars burger-icon fa-2x"></i>
+                    <i id="closeicon" style="display: none;" class="fa-solid fa-close fa-3x"></i>
+                </button>
+            </header>
+            <nav class="sidebar-menu">
+                <button type="button" class="progress">
+                    <i class="fa fa-sort-alpha-asc" aria-hidden="true" style="font-size: x-large;"></i>
+                    <span
+                        style="animation-delay: .6s; font-size: x-large; font-weight: bold; background: -webkit-linear-gradient(45deg, #9100ff, #97006f 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">PROGRESS</span>
+                </button>
+                <button type="button" onclick="feedletters()">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <span style="animation-delay: .5s">Letters</span>
+                </button>
+                <button type="button" onclick="feedwords()">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <span style="animation-delay: .4s">Words</span>
+                </button>
+                <button type="button" onclick="feedphrases()">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <span style="animation-delay: .3s">Phrases</span>
+                </button>
+                <button type="button" onclick="feedsentences()">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <span style="animation-delay: .3s">Sentences</span>
+                </button>
+                <button type="button" onclick="feedparagraphs()">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <span style="animation-delay: .2s">Paragraphs</span>
+                </button>
+                <button type="button" onclick="feedrandom()">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <span style="animation-delay: .2s">Random</span>
+                </button>
+                <button style="position: fixed;bottom: 20px;" type="button" class="progress" onclick="redirect()">
+                    <i class="fa fa-user-circle" aria-hidden="true" style="font-size: x-large;"></i>
+                    <span
+                        style="animation-delay: .1s; font-size: x-large; font-weight: bold; background: -webkit-linear-gradient(45deg, #9100ff, #97006f 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ABOUT</span>
+                </button>
+            </nav>
+        </div>
+    </aside>
+
+    <div id="header">
+        <h1><strong>Blind Keyboard </strong><i class="fa fa-eye-slash" aria-hidden="true"></i></h1>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div id="info-message" class="ui info message" style="white-space: nowrap; overflow:scroll;">
+        <h2 id="inputcomesherexd">WORDS APPEAR HERE</h2>
+    </div>
+
+    <textarea id="textinput" type="text" class="ui card" maxlength="1" onchange onpropertychange onkeyuponpaste
+        oninput="read()" onmousedown="WhichButton(event)" oncontextmenu="return false;"
+        placeholder="-Click here to start typing&#10;-Text in Blue is to be typed&#10;-Text in Red shows Key Placement&#10;-Keyboard below shows Keystrokes&#10;-It is Not for Typing&#10;-Click on &#9776; to change difficulty&#10;-Left Click to relisten"></textarea>
+
+    <div id="info-message" class="ui info message" onmousedown="RetryNext(event)" oncontextmenu="return false;"
+        style="background-color: #fff8f8; color: #862727; box-shadow: 0 0 0 1px #dea9a9 inset, 0 0 0 0 transparent;">
+        <h2 id="output">OUTPUT COMES HERE</h2>
+    </div>
+
+    <br>
+
+    <div id="keyboard">
+        <div id="row-1">
+            <button id="key-0" class="compact ui button key" onclick="showalert()">
+                Q
+            </button>
+            <button id="key-3" class="compact ui button key" onclick="showalert()">
+                W
+            </button>
+            <button id="key-6" class="compact ui button key" onclick="showalert()">
+                E
+            </button>
+            <button id="key-9" class="compact ui button key" onclick="showalert()">
+                R
+            </button>
+            <button id="key-12" class="compact ui button key" onclick="showalert()">
+                T
+            </button>
+            <button id="key-15" class="compact ui button key" onclick="showalert()">
+                Y
+            </button>
+            <button id="key-18" class="compact ui button key" onclick="showalert()">
+                U
+            </button>
+            <button id="key-21" class="compact ui button key" onclick="showalert()">
+                I
+            </button>
+            <button id="key-24" class="compact ui button key" onclick="showalert()">
+                O
+            </button>
+            <button id="key-27" class="compact ui button key" onclick="showalert()">
+                P
+            </button>
+        </div>
+
+        <div id="row-2">
+            <button id="key-1" class="compact ui button key" onclick="showalert()">
+                A
+            </button>
+            <button id="key-4" class="compact ui button key" onclick="showalert()">
+                S
+            </button>
+            <button id="key-7" class="compact ui button key" onclick="showalert()">
+                D
+            </button>
+            <button id="key-10" class="compact ui button key" onclick="showalert()" style="text-decoration: underline;">
+                F
+            </button>
+            <button id="key-13" class="compact ui button key" onclick="showalert()">
+                G
+            </button>
+            <button id="key-16" class="compact ui button key" onclick="showalert()">
+                H
+            </button>
+            <button id="key-19" class="compact ui button key" onclick="showalert()" style="text-decoration: underline;">
+                J
+            </button>
+            <button id="key-22" class="compact ui button key" onclick="showalert()">
+                K
+            </button>
+            <button id="key-25" class="compact ui button key" onclick="showalert()">
+                L
+            </button>
+        </div>
+
+        <div id="row-3">
+            <button id="key-2" class="compact ui button key" onclick="showalert()">
+                Z
+            </button>
+            <button id="key-5" class="compact ui button key" onclick="showalert()">
+                X
+            </button>
+            <button id="key-8" class="compact ui button key" onclick="showalert()">
+                C
+            </button>
+            <button id="key-11" class="compact ui button key" onclick="showalert()">
+                V
+            </button>
+            <button id="key-14" class="compact ui button key" onclick="showalert()">
+                B
+            </button>
+            <button id="key-17" class="compact ui button key" onclick="showalert()">
+                N
+            </button>
+            <button id="key-20" class="compact ui button key" onclick="showalert()">
+                M
+            </button>
+        </div>
+        <!--<div id="row-4">
+            <button id="key-30" class="compact ui button space">
+                space
+            </button>
+            <button id="key-31" class="compact ui button delete">
+                delete
+            </button>
+        </div>-->
+    </div>
+    <div style="display: none;">
+        Select Voice: <select id='voiceList'></select> <br><br>
+        <input id='txtInput' /> <br><br>
+        <button id='btnSpeak'>Speak!</button>
+    </div>
+</body>
+
+<script src="test.js"></script>
+
+</html>
