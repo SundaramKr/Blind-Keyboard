@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -101,7 +102,7 @@
         oninput="read()" onmousedown="WhichButton(event)" oncontextmenu="return false;"
         placeholder="-Click here to start typing&#10;-Text in Blue is to be typed&#10;-Text in Red shows Key Placement&#10;-Keyboard below shows Keystrokes&#10;-It is Not for Typing&#10;-Click on &#9776; to change difficulty&#10;-Left Click to relisten"></textarea>
 
-    <div id="info-message" class="ui info message"
+    <div id="info-message" class="ui info message" onmousedown="RetryNext(event)" oncontextmenu="return false;"
         style="background-color: #fff8f8; color: #862727; box-shadow: 0 0 0 1px #dea9a9 inset, 0 0 0 0 transparent;">
         <h2 id="output">OUTPUT COMES HERE</h2>
     </div>

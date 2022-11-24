@@ -134,7 +134,7 @@ var keyMapping = {
 }*/
 
 function showalert() {
-    alert("Keyboard Not For Typing.\nClick on the Textbox to type.");
+    alert("> This keyboard is only to assist the user's helper and is not For typing.\n> Click on the textbox to type using your standard keyboard.");
     document.getElementById("textinput").focus();
 }
 

@@ -45,15 +45,17 @@ var st;
 var isitletter = 0;
 var isitsentence = 0;
 //words = ["HOMIE", "LESS", "GO", "MOYAI", "EMOJI", "DANK"];
-words = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "spade", "shake", "insidious", "tendency", "type", "fanatical", "clip", "hate", "surprise", "irate", "launch", "record", "follow", "inexpensive", "iron", "try", "art", "aloof", "roasted", "puffy", "panoramic", "abusive", "grade", "normal", "birth", "sable", "gigantic", "smell", "kick", "town", "minute", "rhyme", "whole", "tart", "distribution", "allow", "ants", "snow", "best", "hover", "educate", "strengthen", "learn", "squirrel", "advocate", "receive", "listen", "parcel", "vacuous", "bag"];
+/*words = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "spade", "shake", "insidious", "tendency", "type", "fanatical", "clip", "hate", "surprise", "irate", "launch", "record", "follow", "inexpensive", "iron", "try", "art", "aloof", "roasted", "puffy", "panoramic", "abusive", "grade", "normal", "birth", "sable", "gigantic", "smell", "kick", "town", "minute", "rhyme", "whole", "tart", "distribution", "allow", "ants", "snow", "best", "hover", "educate", "strengthen", "learn", "squirrel", "advocate", "receive", "listen", "parcel", "vacuous", "bag"];
 
 st = words[l];
 st = st.toUpperCase();
-document.getElementById("inputcomesherexd").innerHTML = st;
+document.getElementById("inputcomesherexd").innerHTML = st;*/
 
 function closepopup() {
 	document.getElementById("popUpMain").style.display = "none";
-	document.getElementById("txtInput").value = "WELCOME TO BLIND KEYBOARD - A website which helps Blind people type. A structured course will be given to you to type. Or you can click on the menu button to practice different levels based on your skillset. Assigning Beginner Course...";
+	document.getElementById("txtInput").value = "WELCOME TO BLIND KEYBOARD - A website which helps Blind people type. A structured course will be given to you to type. Or you can click on the menu button to practice different levels.";
+	document.getElementById("btnSpeak").click();
+	document.getElementById("txtInput").value = "Right click the red output box to move onto the next course. Left click to retry the current course. Assigning Beginner Course...";
 	document.getElementById("btnSpeak").click();
 	/*document.getElementById("textinput").focus();
 	document.getElementById("txtInput").value = "TYPE " + document.getElementById("inputcomesherexd").innerHTML;
@@ -62,7 +64,6 @@ function closepopup() {
 	feedletters();
 }
 
-
 function feedletters() {
 	toggleSidebar();
 	sessionStorage.setItem("l", 0);
@@ -70,7 +71,7 @@ function feedletters() {
 	l = 0;
 	i = 0;
 
-	document.getElementById("txtInput").value = "YOU HAVE CHOSEN LETTERS. LEFT CLICK ON THE TEXT BOX TO RE-LISTEN.";
+	document.getElementById("txtInput").value = "YOU HAVE CHOSEN LETTERS. RIGHT CLICK ON THE TEXT BOX TO TYPE. LEFT CLICK TO RE-LISTEN.";
 	document.getElementById("btnSpeak").click();
 
 	document.getElementById("textinput").disabled = false;
@@ -97,7 +98,7 @@ function feedwords() {
 	l = 0;
 	i = 0;
 
-	document.getElementById("txtInput").value = "YOU HAVE CHOSEN WORDS. LEFT CLICK ON THE TEXT BOX TO RE-LISTEN.";
+	document.getElementById("txtInput").value = "YOU HAVE CHOSEN WORDS. RIGHT CLICK ON THE TEXT BOX TO TYPE. LEFT CLICK TO RE-LISTEN.";
 	document.getElementById("btnSpeak").click();
 
 	document.getElementById("textinput").disabled = false;
@@ -124,7 +125,7 @@ function feedphrases() {
 	l = 0;
 	i = 0;
 
-	document.getElementById("txtInput").value = "YOU HAVE CHOSEN PHRASES. LEFT CLICK ON THE TEXT BOX TO RE-LISTEN.";
+	document.getElementById("txtInput").value = "YOU HAVE CHOSEN PHRASES. RIGHT CLICK ON THE TEXT BOX TO TYPE. LEFT CLICK TO RE-LISTEN.";
 	document.getElementById("btnSpeak").click();
 
 	document.getElementById("textinput").disabled = false;
@@ -151,7 +152,7 @@ function feedsentences() {
 	l = 0;
 	i = 0;
 
-	document.getElementById("txtInput").value = "YOU HAVE CHOSEN SENTENCES. LEFT CLICK ON THE TEXT BOX TO RE-LISTEN.";
+	document.getElementById("txtInput").value = "YOU HAVE CHOSEN SENTENCES. RIGHT CLICK ON THE TEXT BOX TO TYPE. LEFT CLICK TO RE-LISTEN.";
 	document.getElementById("btnSpeak").click();
 
 	document.getElementById("textinput").disabled = false;
@@ -178,7 +179,7 @@ function feedparagraphs() {
 	l = 0;
 	i = 0;
 
-	document.getElementById("txtInput").value = "YOU HAVE CHOSEN PARAGRAPHS. LEFT CLICK ON THE TEXT BOX TO RE-LISTEN.";
+	document.getElementById("txtInput").value = "YOU HAVE CHOSEN PARAGRAPHS. RIGHT CLICK ON THE TEXT BOX TO TYPE. LEFT CLICK TO RE-LISTEN.";
 	document.getElementById("btnSpeak").click();
 
 	document.getElementById("textinput").disabled = false;
@@ -205,7 +206,7 @@ function feedrandom() {
 	l = 0;
 	i = 0;
 
-	document.getElementById("txtInput").value = "YOU HAVE CHOSEN RANDOM SENTENCES AND PHRASES. LEFT CLICK ON THE TEXT BOX TO RE-LISTEN.";
+	document.getElementById("txtInput").value = "YOU HAVE CHOSEN RANDOM SENTENCES AND PHRASES. RIGHT CLICK ON THE TEXT BOX TO TYPE. LEFT CLICK TO RE-LISTEN.";
 	document.getElementById("btnSpeak").click();
 
 	document.getElementById("textinput").disabled = false;
@@ -229,6 +230,38 @@ function WhichButton(event) {
 	if (event.button == 2) {
 		document.getElementById("txtInput").value = document.getElementById("inputcomesherexd").innerHTML;
 		document.getElementById("btnSpeak").click();
+	}
+}
+
+function RetryNext(event) {
+	toggleSidebar();
+	if (event.button == 0) {
+		if (words[0] == "A")
+		feedletters();
+		else if(words[0] == "spade")
+		feedwords();
+		else if(words[0] == "Cut To The Chase")
+		feedphrases();
+		else if(words[0] == "Twin four month olds slept in the shade of the palm tree.")
+		feedsentences();
+		else if(words[0] == "They say you only come to peace with yourself when you know yourself better than those around you. Derick knew nothing about this. He thought he had found peace but this was an illusion as he was about to find out with an unexpected occurrence that he actually knew nothing about himself.")
+		feedparagraphs();
+		else if(words[0] == "Then they made fifty loops along the edge of the end curtain in one set and also along the edge of the end curtain in the other set.")
+		feedrandom();
+	}
+	else if (event.button == 2) {
+		if (words[0] == "A")
+		feedwords();
+		else if(words[0] == "spade")
+		feedphrases();
+		else if(words[0] == "Cut To The Chase")
+		feedsentences();
+		else if(words[0] == "Twin four month olds slept in the shade of the palm tree.")
+		feedparagraphs();
+		else if(words[0] == "They say you only come to peace with yourself when you know yourself better than those around you. Derick knew nothing about this. He thought he had found peace but this was an illusion as he was about to find out with an unexpected occurrence that he actually knew nothing about himself.")
+		feedrandom();
+		else if(words[0] == "Then they made fifty loops along the edge of the end curtain in one set and also along the edge of the end curtain in the other set.")
+		feedletters();
 	}
 }
 
@@ -347,9 +380,14 @@ function read() {
 				document.getElementById("txtInput").value = "TYPE " + document.getElementById("inputcomesherexd").innerHTML;
 			}
 			document.getElementById("btnSpeak").click();
-			if (isitletter == 1) {
+			if (isitletter == 1 && catchingerr == 0) {
 				read();
 			}
+		}
+
+		if(catchingerr == 1) {
+			document.getElementById("txtInput").value = "RIGHT CLICK THE RED OUTPUT BOX TO MOVE TO THE NEXT COURSE. LEFT CLICK THE RED OUTPUT BOX TO RETRY THE CURRENT COURSE.";
+			document.getElementById("btnSpeak").click();
 		}
 	}
 }
