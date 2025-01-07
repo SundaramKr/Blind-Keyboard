@@ -53,7 +53,7 @@ document.getElementById("inputcomesherexd").innerHTML = st;*/
 
 function closepopup() {
 	document.getElementById("popUpMain").style.display = "none";
-	document.getElementById("txtInput").value = "WELCOME TO VISUALLY IMPAIRED KEYBOARD - A website which helps visually imapired people type. A structured course will be given to you to type. Or you can click on the menu button to practice different levels.";
+	document.getElementById("txtInput").value = "WELCOME TO VISUALLY IMPAIRED KEYBOARD - A website which helps visually impaired people type. A structured course will be given to you to type. Or you can click on the menu button to practice different levels.";
 	document.getElementById("btnSpeak").click();
 	document.getElementById("txtInput").value = "Right click the red output box to move onto the next course. Left click to retry the current course. Assigning Beginner Course...";
 	document.getElementById("btnSpeak").click();
