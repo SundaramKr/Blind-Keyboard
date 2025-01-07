@@ -53,7 +53,7 @@ document.getElementById("inputcomesherexd").innerHTML = st;*/
 
 function closepopup() {
 	document.getElementById("popUpMain").style.display = "none";
-	document.getElementById("txtInput").value = "WELCOME TO BLIND KEYBOARD - A website which helps Blind people type. A structured course will be given to you to type. Or you can click on the menu button to practice different levels.";
+	document.getElementById("txtInput").value = "WELCOME TO VISUALLY IMPAIRED KEYBOARD - A website which helps visually imapired people type. A structured course will be given to you to type. Or you can click on the menu button to practice different levels.";
 	document.getElementById("btnSpeak").click();
 	document.getElementById("txtInput").value = "Right click the red output box to move onto the next course. Left click to retry the current course. Assigning Beginner Course...";
 	document.getElementById("btnSpeak").click();
@@ -335,7 +335,7 @@ function read() {
 
 				if (sessionStorage.getItem('l') == words.length) {
 					document.getElementById("textinput").disabled = true;
-					document.getElementById("textinput").placeholder = "That's all for now. Thanks for using Blind Keyboard.";
+					document.getElementById("textinput").placeholder = "That's all for now. Thanks for using Visually Impaired Keyboard.";
 				}
 			}
 		}
